@@ -99,7 +99,7 @@ sha256sums=(
 
 check() {
   cd \
-    "${pkgname}"
+    "${_tarname}"
   make \
     -k \
     check
@@ -119,7 +119,7 @@ package_termux-setup-pacman-git() {
     PREFIX='/usr'
   )
   cd \
-    "${pkgname}-${pkgver}"
+    "${_tarname}"
   make \
     "${_make_opts[@]}" \
       install-scripts
@@ -139,7 +139,7 @@ package_termux-setup-pacman-docs-git() {
     PREFIX='/usr'
   )
   cd \
-    "${pkgname}-${pkgver}"
+    "${_tarname}"
   make \
     "${_make_opts[@]}" \
       install-doc
