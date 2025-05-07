@@ -41,7 +41,11 @@ if [[ "${_docs}" == "true" ]]; then
     "${_pkg}-git-docs"
   )
 fi
-pkgdesc="Script to setup a pacman environment on Termux."
+_pkgdesc=(
+  "Script to setup a pacman"
+  "environment on Termux."
+)
+pkgdesc="${_pkgdesc[*]}"
 _http="https://github.com"
 _ns="themartiancompany"
 url="${_http}/${_ns}/${_pkg}"
@@ -72,21 +76,23 @@ arch=(
   'any'
 )
 _branch="master"
-_git_uri="git+${url}.git#branch=${pkgver}"
+_git_uri="git+${url}.git#branch=${_branch}"
 _http_uri="${url}/archive/refs/tags/${pkgver}.tar.gz"
 _tarname="${_pkg}-${pkgver}"
 if [[ "${_git}" == "true" ]]; then
   _uri="${_git_uri}"
   _src="${_tarname}::${_git}#tag=${pkgver}"
+  _sum="SKIP"
 elif [[ "${_git}" == "false" ]]; then
   _uri="${_http_uri}"
   _src="${_tarname}.tar.gz::${_uri}"
+  _sum="17700db7892ea7055e998fe8e686e0e40a0f47e3f9fb7c1a608943876bcba165"
 fi
 source=(
   "${_src}"
 )
 sha256sums=(
-  '17700db7892ea7055e998fe8e686e0e40a0f47e3f9fb7c1a608943876bcba165'
+  "${_sum}"
 )
 
 check() {
