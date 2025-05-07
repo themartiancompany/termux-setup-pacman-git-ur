@@ -24,10 +24,10 @@
 # Maintainer: Pellegrino Prevete (dvorak) <pellegrinoprevete@gmail.com>
 # Maintainer: Pellegrino Prevete (dvorak) <dvorak@0x87003Bd6C074C713783df04f36517451fF34CBEf>
 
-if [[ -v "docs" ]]; then
+if [[ ! -v "docs" ]]; then
   _docs="true"
 fi
-if [[ -v "_git" ]]; then
+if [[ ! -v "_git" ]]; then
   _git="true"
 fi
 _py="python"
