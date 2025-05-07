@@ -83,7 +83,7 @@ _http_uri="${url}/archive/refs/tags/${pkgver}.tar.gz"
 _tarname="${_pkg}-${pkgver}"
 if [[ "${_git}" == "true" ]]; then
   _uri="${_git_uri}"
-  _src="${_tarname}::${_git}#tag=${pkgver}"
+  _src="${_tarname}::${_uri}"
   _sum="SKIP"
 elif [[ "${_git}" == "false" ]]; then
   _uri="${_http_uri}"
