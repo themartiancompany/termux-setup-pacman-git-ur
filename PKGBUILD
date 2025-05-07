@@ -49,8 +49,8 @@ pkgdesc="${_pkgdesc[*]}"
 _http="https://github.com"
 _ns="themartiancompany"
 url="${_http}/${_ns}/${_pkg}"
-pkgver=0.1.1
-pkgrel=2
+pkgver=0.1.1.r15.g7d01d25
+pkgrel=1
 license=(
   'AGPL3'
 )
