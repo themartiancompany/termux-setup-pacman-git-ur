@@ -78,9 +78,11 @@ arch=(
   'any'
 )
 _branch="master"
-_git_uri="git+${url}.git#branch=${_branch}"
+_tag_name="branch"
+_tag="${_branch}"
+_git_uri="git+${url}.git#${_tag_name}=${_tag}"
 _http_uri="${url}/archive/refs/tags/${pkgver}.tar.gz"
-_tarname="${_pkg}-${pkgver}"
+_tarname="${_pkg}-${_tag}"
 if [[ "${_git}" == "true" ]]; then
   _uri="${_git_uri}"
   _src="${_tarname}::${_uri}"
@@ -188,7 +190,7 @@ _git_pkgver() {
 
 pkgver() {
   cd \
-    "${_pkgname}-${_branch}"
+    "${_tarname}"
   if [[ "${_git}" == true ]]; then
     _git_pkgver
   elif [[ "${_git}" == false ]]; then
