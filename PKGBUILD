@@ -28,17 +28,17 @@ if [[ -v "docs" ]]; then
   _docs="true"
 fi
 if [[ "${_git}" == "true" ]]; then
-  _git="false"
+  _git="true"
 fi
 _py="python"
 _pkg=termux-setup-pacman
-pkgbase="${_pkg}"
+pkgbase="${_pkg}-git"
 pkgname=(
-  "${_pkg}"
+  "${_pkg}-git"
 )
 if [[ "${_docs}" == "true" ]]; then
   pkgname+=(
-    "${_pkg}-docs"
+    "${_pkg}-git-docs"
   )
 fi
 pkgdesc="Script to setup a pacman environment on Termux."
@@ -71,7 +71,8 @@ optdepends=(
 arch=(
   'any'
 )
-_git_uri="git+${url}.git#tag=${pkgver}"
+_branch="master"
+_git_uri="git+${url}.git#branch=${pkgver}"
 _http_uri="${url}/archive/refs/tags/${pkgver}.tar.gz"
 _tarname="${_pkg}-${pkgver}"
 if [[ "${_git}" == "true" ]]; then

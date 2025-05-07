@@ -19,7 +19,7 @@
 [comment]: <> (License along with this program.)
 [comment]: <> (If not, see <https://www.gnu.org/licenses/>.)
 
-# `termux-setup-pacman`
+# `termux-setup-pacman-git`
 
 universal recipe for
 [user repo](
