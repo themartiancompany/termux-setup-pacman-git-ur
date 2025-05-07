@@ -38,7 +38,7 @@ pkgname=(
 )
 if [[ "${_docs}" == "true" ]]; then
   pkgname+=(
-    "${_pkg}-git-docs"
+    "${_pkg}-docs-git"
   )
 fi
 _pkgdesc=(
@@ -67,6 +67,8 @@ if [[ "${_docs}" == "true" ]]; then
     "${_py}-docutils"
   )
 fi
+provides=()
+conflicts=()
 checkdepends=(
   'shellcheck'
 )
@@ -103,9 +105,15 @@ check() {
     check
 }
 
-package_termux-setup-pacman() {
+package_termux-setup-pacman-git() {
   local \
     _make_opts=()
+  provides+=(
+    "${_pkg}=${pkgver}"
+  )
+  conflicts+=(
+    "${_pkg}-docs"
+  )
   _make_opts=(
     DESTDIR="${pkgdir}"
     PREFIX='/usr'
@@ -117,9 +125,15 @@ package_termux-setup-pacman() {
       install-scripts
 }
 
-package_termux-setup-pacman-docs() {
+package_termux-setup-pacman-docs-git() {
   local \
     _make_opts=()
+  provides+=(
+    "${_pkg}-docs=${pkgver}"
+  )
+  conflicts+=(
+    "${_pkg}-docs"
+  )
   _make_opts=(
     DESTDIR="${pkgdir}"
     PREFIX='/usr'
