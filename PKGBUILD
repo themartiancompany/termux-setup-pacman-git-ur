@@ -27,7 +27,7 @@
 if [[ -v "docs" ]]; then
   _docs="true"
 fi
-if [[ "${_git}" == "true" ]]; then
+if [[ -v "_git" ]]; then
   _git="true"
 fi
 _py="python"
